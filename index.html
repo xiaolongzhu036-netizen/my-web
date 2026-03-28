@@ -276,7 +276,7 @@ document.getElementById("file-btn").onclick = () => {};
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="filename" content="liver_cancer_tace_prediction.html">
-    <title>中国医科大学 · 基于MRI组学的肝癌TACE疗效预测系统</title>
+    <title>智影肝策小组 · 基于MRI组学的肝癌TACE疗效预测系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -432,6 +432,114 @@ document.getElementById("file-btn").onclick = () => {};
             width: 40px;
             height: 2px;
             background: linear-gradient(90deg, #0066CC, transparent);
+        }
+        /* 项目背景 · 系统工作流程 */
+        .workflow-shell {
+            position: relative;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(0, 102, 204, 0.12);
+            background: linear-gradient(165deg, #ffffff 0%, #f8fafc 40%, #f0f9ff 100%);
+            box-shadow: 0 20px 50px -12px rgba(0, 102, 204, 0.14);
+            overflow: hidden;
+        }
+        .workflow-shell::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 50% at 100% 0%, rgba(0, 102, 204, 0.06), transparent 55%);
+            pointer-events: none;
+        }
+        .workflow-topline {
+            height: 4px;
+            background: linear-gradient(90deg, #0066CC, #00A3E0, #14b8a6);
+        }
+        .workflow-node-card {
+            position: relative;
+            z-index: 1;
+            padding: 1rem 0.75rem 1.1rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 102, 204, 0.1);
+            box-shadow: 0 4px 14px rgba(0, 102, 204, 0.07);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+            max-width: 9.5rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .workflow-node-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px -10px rgba(0, 102, 204, 0.22);
+            border-color: rgba(0, 102, 204, 0.22);
+        }
+        .workflow-step-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 1.5rem;
+            height: 1.5rem;
+            padding: 0 0.35rem;
+            border-radius: 999px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            background: linear-gradient(135deg, #0066CC, #00A3E0);
+            color: #fff;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+        }
+        .workflow-step-badge--teal {
+            background: linear-gradient(135deg, #14b8a6, #0f766e);
+            box-shadow: 0 2px 8px rgba(20, 184, 166, 0.35);
+        }
+        .workflow-step-badge--indigo {
+            background: linear-gradient(135deg, #6366f1, #4338ca);
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.35);
+        }
+        .workflow-step-badge--red {
+            background: linear-gradient(135deg, #ef4444, #be123c);
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.35);
+        }
+        .workflow-connector-h {
+            display: none;
+        }
+        @media (min-width: 1024px) {
+            .workflow-connector-h {
+                display: flex;
+                align-items: center;
+                flex: 1;
+                min-width: 0;
+                max-width: 3.5rem;
+                gap: 0;
+            }
+            .workflow-connector-h .workflow-line {
+                flex: 1;
+                height: 3px;
+                border-radius: 999px;
+                background: linear-gradient(90deg, rgba(0, 102, 204, 0.15), rgba(0, 102, 204, 0.45));
+            }
+            .workflow-connector-h.rev .workflow-line {
+                background: linear-gradient(270deg, rgba(0, 102, 204, 0.15), rgba(0, 102, 204, 0.45));
+            }
+        }
+        .workflow-bridge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 0;
+        }
+        .workflow-bridge-line {
+            width: 2px;
+            height: 1.25rem;
+            background: linear-gradient(180deg, rgba(0, 102, 204, 0.35), rgba(0, 163, 224, 0.65));
+            border-radius: 999px;
+        }
+        .workflow-phase-tag {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #64748b;
         }
         .quick-action-card {
             transition: all 0.3s ease;
@@ -753,6 +861,189 @@ document.getElementById("file-btn").onclick = () => {};
             transform: translateY(-6px);
             box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15);
         }
+        /* 在线预测 · 模型证据展示 */
+        .predict-hero-strip {
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.06) 0%, rgba(0, 163, 224, 0.08) 50%, rgba(16, 185, 129, 0.06) 100%);
+            border: 1px solid rgba(0, 102, 204, 0.12);
+            border-radius: 24px;
+            padding: 20px 28px;
+        }
+        .predict-stat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            background: white;
+            border: 1px solid rgba(0, 102, 204, 0.15);
+            box-shadow: 0 4px 14px rgba(0, 102, 204, 0.08);
+            color: #0f172a;
+        }
+        .predict-stat-chip em {
+            font-style: normal;
+            background: linear-gradient(135deg, #0066CC, #00A3E0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        .predict-evidence-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 102, 204, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .predict-evidence-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 48px rgba(0, 102, 204, 0.14);
+        }
+        .predict-evidence-card .predict-evidence-img-wrap {
+            cursor: zoom-in;
+            background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+            border-bottom: 1px solid rgba(0, 102, 204, 0.08);
+        }
+        .predict-evidence-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: contain;
+        }
+        .predict-evidence-card.predict-evidence-featured img {
+            max-height: 520px;
+        }
+        #predict-img-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            cursor: zoom-out;
+        }
+        #predict-img-lightbox.active {
+            display: flex;
+        }
+        #predict-img-lightbox img {
+            max-width: min(96vw, 1400px);
+            max-height: 92vh;
+            width: auto;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+            cursor: default;
+        }
+        #predict-img-lightbox .lb-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+        }
+        /* 在线预测 · 工作台（借鉴临床系统布局，适配肝癌 TACE） */
+        .predict-workbench {
+            border-radius: 1rem;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 10px 40px -12px rgba(15, 23, 42, 0.12);
+        }
+        .predict-wb-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.65rem 1rem;
+            background: linear-gradient(90deg, #0f172a 0%, #1e3a5f 100%);
+            color: #f8fafc;
+        }
+        .predict-wb-breadcrumb {
+            padding: 0.45rem 1rem;
+            font-size: 0.8rem;
+            color: #64748b;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .predict-wb-breadcrumb span.sep {
+            margin: 0 0.35rem;
+            color: #cbd5e1;
+        }
+        .predict-wb-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.25rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.72rem;
+            color: #64748b;
+            background: #fafafa;
+            border-top: 1px solid #f1f5f9;
+        }
+        .predict-wb-meta strong {
+            color: #334155;
+            font-weight: 600;
+        }
+        .predict-heatmap-box {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            aspect-ratio: 4/3;
+            background: linear-gradient(160deg, #0c1929 0%, #1e293b 50%, #334155 100%);
+        }
+        .predict-heatmap-box .scan-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+            background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .predict-heatmap-box .heatmap-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 42% 38% at 58% 48%, rgba(239, 68, 68, 0.55), transparent 72%),
+                        radial-gradient(ellipse 28% 30% at 38% 55%, rgba(251, 191, 36, 0.35), transparent 65%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+        }
+        .predict-heatmap-box .heatmap-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.35rem 0.5rem;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.85);
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+        }
+        .feature-contrib-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .feature-contrib-row .bar-wrap {
+            flex: 1;
+            height: 0.45rem;
+            background: #e2e8f0;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .feature-contrib-row .bar {
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #0066CC, #00A3E0);
+        }
+        .review-panel {
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+        }
     </style>
 </head>
 <body>
@@ -767,7 +1058,7 @@ document.getElementById("file-btn").onclick = () => {};
                             <i data-lucide="activity" class="text-white w-8 h-8"></i>
                         </div>
                         <div>
-                            <h1 class="text-xl font-display font-bold text-gray-900">中国医科大学</h1>
+                            <h1 class="text-xl font-display font-bold text-gray-900">智影肝策小组</h1>
                             <p class="text-sm text-gray-600 font-medium">基于MRI组学的肝癌TACE疗效预测系统</p>
                         </div>
                     </div>
@@ -816,7 +1107,7 @@ document.getElementById("file-btn").onclick = () => {};
                         <div class="mb-8 flex justify-center">
                             <div class="badge-pill">
                                 <i data-lucide="sparkles" class="w-4 h-4"></i>
-                                中国医科大学 研究成果
+                                智影肝策小组 研究成果
                             </div>
                         </div>
                         
@@ -1064,105 +1355,166 @@ document.getElementById("file-btn").onclick = () => {};
                         
                         <!-- 系统工作流程 -->
                         <div class="mb-20">
-                            <div class="glass-card rounded-3xl p-10">
-                                <h3 class="text-2xl font-display font-bold text-gray-900 mb-8 flex items-center gap-3">
-                                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                                        <i data-lucide="workflow" class="text-white w-5 h-5"></i>
+                            <div class="workflow-shell">
+                                <div class="workflow-topline"></div>
+                                <div class="relative p-6 md:p-8 lg:p-10">
+                                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-8">
+                                        <div class="flex items-start gap-4">
+                                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg shrink-0">
+                                                <i data-lucide="workflow" class="text-white w-6 h-6"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="text-xl md:text-2xl font-display font-bold text-gray-900">系统工作流程</h3>
+                                                <p class="text-sm text-gray-500 mt-1 max-w-xl">从病例入组、影像采集到组学建模与列线图输出，形成可追溯的预测闭环。</p>
+                                            </div>
+                                        </div>
+                                        <span class="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-100">
+                                            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                                            闭环流程
+                                        </span>
                                     </div>
-                                    系统工作流程
-                                </h3>
-                                
-                                <!-- 流程图 -->
-                                <div class="relative">
-                                    <!-- 第一行：病例入组 → MRI扫描 → 肿瘤分割 → 特征提取 -->
-                                    <div class="flex items-center justify-between mb-12">
-                                        <div class="workflow-step flex-1 text-center">
-                                            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                                <i data-lucide="user-plus" class="text-white w-10 h-10"></i>
+
+                                    <p class="workflow-phase-tag mb-3">① 影像与组学</p>
+                                    <div class="flex flex-col lg:flex-row lg:items-stretch lg:justify-between gap-3 lg:gap-2 mb-2">
+                                        <div class="workflow-step flex-1 min-w-0 flex flex-col items-center">
+                                            <div class="workflow-node-card w-full">
+                                                <div class="text-center">
+                                                    <span class="workflow-step-badge">01</span>
+                                                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-md">
+                                                        <i data-lucide="user-plus" class="text-white w-7 h-7"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 text-sm leading-tight">病例入组</p>
+                                                    <p class="text-[11px] text-gray-500 mt-0.5">纳入与质控</p>
+                                                </div>
                                             </div>
-                                            <p class="font-bold text-gray-900 mb-1">病例入组</p>
-                                            <p class="text-xs text-gray-500">患者筛选</p>
                                         </div>
-                                        
-                                        <div class="flex items-center justify-center px-6">
-                                            <i data-lucide="arrow-right" class="text-primary w-8 h-8"></i>
+                                        <div class="workflow-connector-h">
+                                            <div class="workflow-line"></div>
+                                            <i data-lucide="chevron-right" class="w-5 h-5 text-primary shrink-0"></i>
                                         </div>
-                                        
-                                        <div class="workflow-step flex-1 text-center">
-                                            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                                <i data-lucide="scan" class="text-white w-10 h-10"></i>
+                                        <div class="lg:hidden flex justify-center py-0.5 text-primary/45">
+                                            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                                        </div>
+
+                                        <div class="workflow-step flex-1 min-w-0 flex flex-col items-center">
+                                            <div class="workflow-node-card w-full">
+                                                <div class="text-center">
+                                                    <span class="workflow-step-badge">02</span>
+                                                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-md">
+                                                        <i data-lucide="scan" class="text-white w-7 h-7"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 text-sm leading-tight">MRI 扫描</p>
+                                                    <p class="text-[11px] text-gray-500 mt-0.5">多参数成像</p>
+                                                </div>
                                             </div>
-                                            <p class="font-bold text-gray-900 mb-1">MRI扫描</p>
-                                            <p class="text-xs text-gray-500">多参数成像</p>
                                         </div>
-                                        
-                                        <div class="flex items-center justify-center px-6">
-                                            <i data-lucide="arrow-right" class="text-primary w-8 h-8"></i>
+                                        <div class="workflow-connector-h">
+                                            <div class="workflow-line"></div>
+                                            <i data-lucide="chevron-right" class="w-5 h-5 text-primary shrink-0"></i>
                                         </div>
-                                        
-                                        <div class="workflow-step flex-1 text-center">
-                                            <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                                <i data-lucide="scissors" class="text-white w-10 h-10"></i>
+                                        <div class="lg:hidden flex justify-center py-0.5 text-primary/45">
+                                            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                                        </div>
+
+                                        <div class="workflow-step flex-1 min-w-0 flex flex-col items-center">
+                                            <div class="workflow-node-card w-full">
+                                                <div class="text-center">
+                                                    <span class="workflow-step-badge">03</span>
+                                                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-md">
+                                                        <i data-lucide="scissors" class="text-white w-7 h-7"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 text-sm leading-tight">肿瘤分割</p>
+                                                    <p class="text-[11px] text-gray-500 mt-0.5">瘤内 + 瘤周</p>
+                                                </div>
                                             </div>
-                                            <p class="font-bold text-gray-900 mb-1">肿瘤分割</p>
-                                            <p class="text-xs text-gray-500">瘤内+瘤周</p>
                                         </div>
-                                        
-                                        <div class="flex items-center justify-center px-6">
-                                            <i data-lucide="arrow-right" class="text-primary w-8 h-8"></i>
+                                        <div class="workflow-connector-h">
+                                            <div class="workflow-line"></div>
+                                            <i data-lucide="chevron-right" class="w-5 h-5 text-primary shrink-0"></i>
                                         </div>
-                                        
-                                        <div class="workflow-step flex-1 text-center">
-                                            <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                                <i data-lucide="package" class="text-white w-10 h-10"></i>
+                                        <div class="lg:hidden flex justify-center py-0.5 text-primary/45">
+                                            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                                        </div>
+
+                                        <div class="workflow-step flex-1 min-w-0 flex flex-col items-center">
+                                            <div class="workflow-node-card w-full">
+                                                <div class="text-center">
+                                                    <span class="workflow-step-badge">04</span>
+                                                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-md">
+                                                        <i data-lucide="package" class="text-white w-7 h-7"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 text-sm leading-tight">组学特征提取</p>
+                                                    <p class="text-[11px] text-gray-500 mt-0.5">放射组学量化</p>
+                                                </div>
                                             </div>
-                                            <p class="font-bold text-gray-900 mb-1">组学特征提取</p>
-                                            <p class="text-xs text-gray-500">影像分析</p>
                                         </div>
                                     </div>
-                                    
-                                    <!-- 第二行：疗效预测 ← 融合列线图 ← LASSO筛选 -->
-                                    <div class="flex items-center justify-between">
-                                        <div class="workflow-step flex-1 text-center">
-                                            <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                                <i data-lucide="clipboard-check" class="text-white w-10 h-10"></i>
-                                            </div>
-                                            <p class="font-bold text-gray-900 mb-1">疗效预测</p>
-                                            <p class="text-xs text-gray-500">临床决策支持</p>
-                                        </div>
-                                        
-                                        <div class="flex items-center justify-center px-6">
-                                            <i data-lucide="arrow-left" class="text-primary w-8 h-8"></i>
-                                        </div>
-                                        
-                                        <div class="workflow-step flex-1 text-center">
-                                            <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                                <i data-lucide="line-chart" class="text-white w-10 h-10"></i>
-                                            </div>
-                                            <p class="font-bold text-gray-900 mb-1">融合列线图模型</p>
-                                            <p class="text-xs text-gray-500">多特征整合</p>
-                                        </div>
-                                        
-                                        <div class="flex items-center justify-center px-6">
-                                            <i data-lucide="arrow-left" class="text-primary w-8 h-8"></i>
-                                        </div>
-                                        
-                                        <div class="workflow-step flex-1 text-center">
-                                            <div class="w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                                <i data-lucide="filter" class="text-white w-10 h-10"></i>
-                                            </div>
-                                            <p class="font-bold text-gray-900 mb-1">LASSO特征筛选</p>
-                                            <p class="text-xs text-gray-500">特征优化</p>
-                                        </div>
-                                        
-                                        <div class="flex-1"></div>
-                                        <div class="flex-1"></div>
+
+                                    <div class="workflow-bridge">
+                                        <div class="workflow-bridge-line"></div>
+                                        <span class="text-[11px] font-bold text-primary px-3 py-1 my-1 rounded-full bg-white/95 border border-primary/25 shadow-sm">模型构建与融合</span>
+                                        <div class="workflow-bridge-line"></div>
                                     </div>
-                                    
-                                    <!-- 循环箭头 -->
-                                    <div class="absolute right-16 top-1/2 transform translate-x-1/2 -translate-y-1/2">
-                                        <i data-lucide="arrow-down" class="text-primary w-10 h-10"></i>
+
+                                    <p class="workflow-phase-tag mb-3 mt-2">② 决策输出（自左向右：预测 ← 列线图 ← LASSO）</p>
+                                    <div class="flex flex-col-reverse lg:flex-row lg:items-stretch lg:justify-between gap-3 lg:gap-2">
+                                        <div class="workflow-step flex-1 min-w-0 flex flex-col items-center">
+                                            <div class="workflow-node-card w-full ring-2 ring-red-100/80">
+                                                <div class="text-center">
+                                                    <span class="workflow-step-badge workflow-step-badge--red">07</span>
+                                                    <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-md">
+                                                        <i data-lucide="clipboard-check" class="text-white w-7 h-7"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 text-sm leading-tight">疗效预测</p>
+                                                    <p class="text-[11px] text-gray-500 mt-0.5">TACE 响应概率</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="workflow-connector-h rev">
+                                            <i data-lucide="chevron-left" class="w-5 h-5 text-primary shrink-0"></i>
+                                            <div class="workflow-line"></div>
+                                        </div>
+                                        <div class="lg:hidden flex justify-center py-0.5 text-primary/45">
+                                            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                                        </div>
+
+                                        <div class="workflow-step flex-1 min-w-0 flex flex-col items-center">
+                                            <div class="workflow-node-card w-full">
+                                                <div class="text-center">
+                                                    <span class="workflow-step-badge workflow-step-badge--indigo">06</span>
+                                                    <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-md">
+                                                        <i data-lucide="line-chart" class="text-white w-7 h-7"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 text-sm leading-tight">融合列线图</p>
+                                                    <p class="text-[11px] text-gray-500 mt-0.5">临床 + 组学</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="workflow-connector-h rev">
+                                            <i data-lucide="chevron-left" class="w-5 h-5 text-primary shrink-0"></i>
+                                            <div class="workflow-line"></div>
+                                        </div>
+                                        <div class="lg:hidden flex justify-center py-0.5 text-primary/45">
+                                            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+                                        </div>
+
+                                        <div class="workflow-step flex-1 min-w-0 flex flex-col items-center">
+                                            <div class="workflow-node-card w-full">
+                                                <div class="text-center">
+                                                    <span class="workflow-step-badge workflow-step-badge--teal">05</span>
+                                                    <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-2 shadow-md">
+                                                        <i data-lucide="filter" class="text-white w-7 h-7"></i>
+                                                    </div>
+                                                    <p class="font-bold text-gray-900 text-sm leading-tight">LASSO 筛选</p>
+                                                    <p class="text-[11px] text-gray-500 mt-0.5">稀疏建模</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    <p class="text-xs text-gray-500 mt-6 pt-5 border-t border-gray-200/80 leading-relaxed">
+                                        <span class="font-semibold text-gray-700">读图提示：</span>上行依次为影像与组学前处理；经「模型构建」衔接后，下行自右向左为特征筛选 → 列线图整合 → 左侧为最终疗效预测输出，与在线预测模块逻辑一致。
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1229,13 +1581,26 @@ document.getElementById("file-btn").onclick = () => {};
                             
                             <div class="grid grid-cols-3 gap-8">
                                 <!-- 在线预测工具 -->
-                                <div class="quick-action-card glass-card p-8 rounded-3xl text-center" data-target="predict">
-                                    <div class="text-5xl mb-4">🧪</div>
-                                    <h4 class="text-xl font-bold text-gray-900 mb-3">在线预测工具</h4>
-                                    <p class="text-sm text-gray-600 mb-6">输入患者数据，即时获取疗效预测结果</p>
-                                    <button class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl hover:shadow-lg transition-all">
-                                        立即使用
-                                    </button>
+                                <div class="quick-action-card glass-card p-8 rounded-3xl text-center relative overflow-hidden border-2 border-transparent hover:border-primary/20" data-target="predict">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full pointer-events-none"></div>
+                                    <div class="relative">
+                                        <div class="flex justify-center gap-2 mb-3">
+                                            <span class="text-xs font-bold px-2 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-100">DCA</span>
+                                            <span class="text-xs font-bold px-2 py-1 rounded-md bg-violet-50 text-violet-800 border border-violet-100">ROC</span>
+                                            <span class="text-xs font-bold px-2 py-1 rounded-md bg-amber-50 text-amber-900 border border-amber-100">Nomogram</span>
+                                        </div>
+                                        <div class="text-5xl mb-3">🧪</div>
+                                        <h4 class="text-xl font-bold text-gray-900 mb-2">在线预测工具</h4>
+                                        <p class="text-sm text-gray-600 mb-5">列线图逻辑 · 组学 Com-RS · 与论文图表同源验证</p>
+                                        <div class="flex flex-wrap justify-center gap-2 mb-5 text-[11px] text-gray-500 font-medium">
+                                            <span>AUC 至 0.89</span>
+                                            <span class="text-gray-300">|</span>
+                                            <span>三队列校准</span>
+                                        </div>
+                                        <button type="button" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl hover:shadow-lg transition-all">
+                                            立即使用
+                                        </button>
+                                    </div>
                                 </div>
                                 
                                 <!-- 模型结果查看 -->
@@ -1637,7 +2002,7 @@ document.getElementById("file-btn").onclick = () => {};
                         <!-- 页面标题 -->
                         <div class="text-center mb-16">
                             <h2 class="text-5xl font-display font-black text-gray-900 mb-6">预测结果</h2>
-                            <p class="text-gray-600 text-lg">模型性能卓越，临床应用价值显著</p>
+                            <p class="text-gray-600 text-lg">LASSO 筛选、ROC 判别、Com-RS 分层与 DCA 临床效用——多图互证</p>
                         </div>
 
                         <!-- 一、特征筛选结果 -->
@@ -1739,7 +2104,7 @@ document.getElementById("file-btn").onclick = () => {};
                         <!-- 三、可视化结果 -->
                         <div class="mb-20">
                             <div class="result-card glass-card rounded-3xl p-12 border-l-4 border-green-500">
-                                <div class="flex items-start gap-6 mb-8">
+                                <div class="flex items-start gap-6 mb-6">
                                     <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
                                         <i data-lucide="line-chart" class="text-white w-8 h-8"></i>
                                     </div>
@@ -1750,79 +2115,52 @@ document.getElementById("file-btn").onclick = () => {};
                                 </div>
 
                                 <div class="pl-22">
-                                    <div class="grid grid-cols-2 gap-6">
-                                        <!-- ROC曲线 -->
-                                        <div class="bg-white rounded-2xl p-6 border border-gray-200">
-                                            <div class="flex items-center gap-3 mb-4">
-                                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                                                    <i data-lucide="trending-up" class="text-blue-600 w-5 h-5"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="font-bold text-gray-900">ROC曲线图</h4>
-                                                    <p class="text-xs text-gray-500">三数据集曲线对比</p>
-                                                </div>
+                                    <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
+                                        下列四幅图从<strong class="text-gray-800">建模—判别—分层—决策</strong>完整呈现研究结论：LASSO 给出稀疏、可复现的特征组合；ROC 显示 Nomogram 在三队列上均优于 Com-RS 与单纯临床模型；Com-RS 瀑布图揭示疗效标签随评分单调分离；DCA 则证明在宽阈值区间内采用 Nomogram 辅助决策具有更高的<strong class="text-gray-800">标准化净获益</strong>。点击图片可全屏查看。
+                                    </p>
+
+                                    <div class="space-y-8">
+                                        <div class="predict-evidence-card predict-evidence-featured shadow-xl">
+                                            <div class="px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-amber-50/80 to-white">
+                                                <p class="text-xs font-bold text-amber-800 uppercase tracking-widest mb-1">图 1 · 特征筛选</p>
+                                                <h4 class="text-lg font-bold text-gray-900">LASSO 交叉验证与系数路径（A–F）</h4>
+                                                <p class="text-sm text-gray-600 mt-1">上排为不同队列上 AUC 随 log(λ) 的变化及最优惩罚选取；下排为系数收缩路径，对应最终进入模型的组学特征集合，与「一、特征筛选结果」中的 11 个特征相衔接。</p>
                                             </div>
-                                            <div class="chart-placeholder">
-                                                <div class="text-center">
-                                                    <i data-lucide="image" class="text-primary w-12 h-12 mx-auto mb-3 opacity-30"></i>
-                                                    <p class="text-gray-500 text-sm">ROC曲线展示区域</p>
-                                                </div>
+                                            <div class="predict-evidence-img-wrap p-3" data-lightbox="assets/fig-lasso.png" role="button" tabindex="0" aria-label="放大查看 LASSO 图">
+                                                <img src="assets/fig-lasso.png" alt="LASSO 回归：交叉验证与系数路径 A 至 F" loading="lazy">
                                             </div>
                                         </div>
 
-                                        <!-- 校准曲线 -->
-                                        <div class="bg-white rounded-2xl p-6 border border-gray-200">
-                                            <div class="flex items-center gap-3 mb-4">
-                                                <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                                                    <i data-lucide="target" class="text-purple-600 w-5 h-5"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="font-bold text-gray-900">校准曲线</h4>
-                                                    <p class="text-xs text-gray-500">预测概率与实际结果高度吻合</p>
-                                                </div>
+                                        <div class="predict-evidence-card shadow-lg">
+                                            <div class="px-5 py-4 border-b border-gray-100 bg-white">
+                                                <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-1">图 2 · 判别能力</p>
+                                                <h4 class="text-lg font-bold text-gray-900">ROC 曲线：训练集、内部验证与外部验证</h4>
+                                                <p class="text-sm text-gray-600 mt-1">红色 Nomogram 曲线在三幅子图中均位于最上方；外部验证集中 Nomogram AUC 为 <strong class="text-gray-900">0.787</strong>，优于 Com-RS（蓝）与 Clinical Model（绿），提示融合模型在独立数据上仍保持稳健判别力。</p>
                                             </div>
-                                            <div class="chart-placeholder">
-                                                <div class="text-center">
-                                                    <i data-lucide="image" class="text-purple-600 w-12 h-12 mx-auto mb-3 opacity-30"></i>
-                                                    <p class="text-gray-500 text-sm">校准曲线展示区域</p>
-                                                </div>
+                                            <div class="predict-evidence-img-wrap p-3" data-lightbox="assets/fig-roc.png" role="button" tabindex="0">
+                                                <img src="assets/fig-roc.png" alt="ROC：三队列三模型对比" loading="lazy">
                                             </div>
                                         </div>
 
-                                        <!-- DCA曲线 -->
-                                        <div class="bg-white rounded-2xl p-6 border border-gray-200">
-                                            <div class="flex items-center gap-3 mb-4">
-                                                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                                                    <i data-lucide="activity" class="text-green-600 w-5 h-5"></i>
+                                        <div class="grid lg:grid-cols-2 gap-8">
+                                            <div class="predict-evidence-card shadow-lg h-full flex flex-col">
+                                                <div class="px-5 py-4 border-b border-gray-100 bg-white flex-1">
+                                                    <p class="text-xs font-bold text-cyan-700 uppercase tracking-widest mb-1">图 3 · 响应分层</p>
+                                                    <h4 class="font-bold text-gray-900">Com-RS 评分瀑布图</h4>
+                                                    <p class="text-sm text-gray-600 mt-1">按 Com-RS 由低至高排序后，NCR（非完全缓解）集中于低分端，CR（完全缓解）分布于高分端；外部验证队列仍保持相同趋势，支持评分作为疗效分层指标。</p>
                                                 </div>
-                                                <div>
-                                                    <h4 class="font-bold text-gray-900">DCA决策曲线</h4>
-                                                    <p class="text-xs text-gray-500">模型具备优异临床净收益</p>
-                                                </div>
-                                            </div>
-                                            <div class="chart-placeholder">
-                                                <div class="text-center">
-                                                    <i data-lucide="image" class="text-green-600 w-12 h-12 mx-auto mb-3 opacity-30"></i>
-                                                    <p class="text-gray-500 text-sm">DCA曲线展示区域</p>
+                                                <div class="predict-evidence-img-wrap p-3 mt-auto" data-lightbox="assets/fig-waterfall.png" role="button" tabindex="0">
+                                                    <img src="assets/fig-waterfall.png" alt="Com-RS 瀑布图：训练、内部验证、外部验证" loading="lazy">
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <!-- 瀑布图 -->
-                                        <div class="bg-white rounded-2xl p-6 border border-gray-200">
-                                            <div class="flex items-center gap-3 mb-4">
-                                                <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                                                    <i data-lucide="bar-chart-2" class="text-orange-600 w-5 h-5"></i>
+                                            <div class="predict-evidence-card shadow-lg h-full flex flex-col">
+                                                <div class="px-5 py-4 border-b border-gray-100 bg-white flex-1">
+                                                    <p class="text-xs font-bold text-violet-700 uppercase tracking-widest mb-1">图 4 · 临床效用</p>
+                                                    <h4 class="font-bold text-gray-900">决策曲线分析（DCA）</h4>
+                                                    <p class="text-sm text-gray-600 mt-1">在较大阈值概率范围内，紫色 Nomogram 曲线的<strong class="text-gray-900">标准化净获益</strong>高于 Com-RS、临床模型及「干预全部 / 全部不干预」策略，说明模型不仅准确，且更利于实际诊疗权衡。</p>
                                                 </div>
-                                                <div>
-                                                    <h4 class="font-bold text-gray-900">瀑布图</h4>
-                                                    <p class="text-xs text-gray-500">精准区分CR / NCR患者</p>
-                                                </div>
-                                            </div>
-                                            <div class="chart-placeholder">
-                                                <div class="text-center">
-                                                    <i data-lucide="image" class="text-orange-600 w-12 h-12 mx-auto mb-3 opacity-30"></i>
-                                                    <p class="text-gray-500 text-sm">瀑布图展示区域</p>
+                                                <div class="predict-evidence-img-wrap p-3 mt-auto" data-lightbox="assets/fig-dca.png" role="button" tabindex="0">
+                                                    <img src="assets/fig-dca.png" alt="决策曲线分析 DCA" loading="lazy">
                                                 </div>
                                             </div>
                                         </div>
@@ -1935,27 +2273,36 @@ document.getElementById("file-btn").onclick = () => {};
                 <div class="py-20 px-12 bg-gradient-to-b from-white via-teal-50 to-white">
                     <div class="max-w-6xl mx-auto">
                         <!-- 页面标题 -->
-                        <div class="text-center mb-16">
-                            <h2 class="text-5xl font-display font-black text-gray-900 mb-6">在线预测工具</h2>
-                            <p class="text-gray-600 text-lg">输入病例信息，智能预测TACE治疗疗效</p>
+                        <div class="text-center mb-8 md:mb-10">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-teal-800 text-sm font-bold mb-4">
+                                <i data-lucide="microscope" class="w-4 h-4"></i>
+                                临床变量 + MRI 组学 · Nomogram 推理
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-display font-black text-gray-900 mb-4">在线预测工具</h2>
+                            <p class="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-5 leading-relaxed">先完成<strong class="text-gray-800">病例信息</strong>，再上传 MRI 提取组学特征，系统将按列线图逻辑给出 TACE 疗效概率。验证性图表见导航<strong class="text-gray-800">「预测结果」</strong>。</p>
+                            <div class="predict-hero-strip max-w-4xl mx-auto flex flex-wrap justify-center gap-3">
+                                <span class="predict-stat-chip"><i data-lucide="line-chart" class="w-4 h-4 text-primary"></i> 外部验证 <em>AUC 0.787</em></span>
+                                <span class="predict-stat-chip"><i data-lucide="git-compare" class="w-4 h-4 text-purple-600"></i> Nomogram 优于 <em>单纯临床模型</em></span>
+                                <span class="predict-stat-chip"><i data-lucide="shield" class="w-4 h-4 text-emerald-600"></i> DCA 显示 <em>更高临床净收益</em></span>
+                            </div>
                         </div>
 
                         <!-- 步骤指示器 -->
-                        <div class="flex items-center justify-center gap-8 mb-16">
+                        <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8 md:mb-10">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold shadow-lg">
                                     1
                                 </div>
                                 <span class="font-semibold text-gray-900">病例信息</span>
                             </div>
-                            <div class="w-20 h-1 bg-gradient-to-r from-primary/30 to-primary/10 rounded-full"></div>
+                            <div class="hidden sm:block w-16 md:w-20 h-1 bg-gradient-to-r from-primary/30 to-primary/10 rounded-full"></div>
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold">
                                     2
                                 </div>
                                 <span class="font-medium text-gray-500">MRI上传</span>
                             </div>
-                            <div class="w-20 h-1 bg-gray-200 rounded-full"></div>
+                            <div class="hidden sm:block w-16 md:w-20 h-1 bg-gray-200 rounded-full"></div>
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 font-bold">
                                     3
@@ -1965,28 +2312,61 @@ document.getElementById("file-btn").onclick = () => {};
                         </div>
 
                         <!-- 第一部分：病例信息录入 -->
-                        <div id="section-patient-info" class="mb-16">
-                            <div class="glass-card rounded-3xl p-12 border-l-4 border-primary">
-                                <div class="flex items-start gap-6 mb-8">
-                                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                                        <i data-lucide="user" class="text-white w-8 h-8"></i>
+                        <div id="section-patient-info" class="mb-10 md:mb-12">
+                            <div class="glass-card rounded-3xl p-8 md:p-10 border-l-4 border-primary shadow-lg shadow-primary/5">
+                                <div class="flex flex-col sm:flex-row sm:items-start gap-5 mb-6 md:mb-8">
+                                    <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                        <i data-lucide="clipboard-list" class="text-white w-7 h-7 md:w-8 md:h-8"></i>
                                     </div>
-                                    <div>
-                                        <h3 class="text-3xl font-display font-bold text-gray-900 mb-3">病例信息录入</h3>
-                                        <div class="h-1 w-32 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Step 1 · 必填</p>
+                                        <h3 class="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-2">病例信息录入</h3>
+                                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">录入患者身份、病毒学与肿瘤指标，并配置<strong class="text-gray-800">工作台预览</strong>中的医师与报告信息。保存后，下方深灰色条将随表单<strong class="text-gray-800">实时同步</strong>。</p>
+                                        <div class="h-1 w-24 bg-gradient-to-r from-primary to-secondary rounded-full mt-4"></div>
                                     </div>
                                 </div>
 
-                                <div class="pl-22">
+                                <div class="pl-0 sm:pl-4 md:pl-8">
                                     <form id="patient-form" class="space-y-6">
                                         <div class="grid grid-cols-2 gap-6">
+                                            <!-- 患者姓名 -->
+                                            <div>
+                                                <label class="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                                                    <i data-lucide="user" class="w-4 h-4 text-primary"></i>
+                                                    患者姓名
+                                                </label>
+                                                <input type="text" id="patient-name" class="form-input" placeholder="例如：张女士" value="张女士">
+                                            </div>
                                             <!-- 患者编号 -->
                                             <div>
                                                 <label class="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
                                                     <i data-lucide="hash" class="w-4 h-4 text-primary"></i>
                                                     患者编号
                                                 </label>
-                                                <input type="text" id="patient-id" class="form-input" placeholder="例如：External-001" value="External-001">
+                                                <input type="text" id="patient-id" class="form-input" placeholder="例如：20260114" value="20260114">
+                                            </div>
+
+                                            <!-- TACE 周期 -->
+                                            <div>
+                                                <label class="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                                                    <i data-lucide="calendar-clock" class="w-4 h-4 text-primary"></i>
+                                                    当前 TACE 周期
+                                                </label>
+                                                <select id="tace-cycle" class="form-input">
+                                                    <option value="1">第 1 次</option>
+                                                    <option value="2" selected>第 2 次</option>
+                                                    <option value="3">第 3 次</option>
+                                                    <option value="4">≥ 第 4 次</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- 计划介入日期 -->
+                                            <div>
+                                                <label class="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                                                    <i data-lucide="calendar" class="w-4 h-4 text-primary"></i>
+                                                    计划 TACE 日期
+                                                </label>
+                                                <input type="date" id="plan-tace-date" class="form-input" value="2026-03-15">
                                             </div>
 
                                             <!-- HBsAg -->
@@ -2040,7 +2420,49 @@ document.getElementById("file-btn").onclick = () => {};
                                             </div>
                                         </div>
 
-                                        <div class="flex justify-end pt-6 border-t border-gray-200">
+                                        <div class="rounded-2xl border border-dashed border-primary/25 bg-blue-50/40 p-6 space-y-4">
+                                            <p class="text-sm font-bold text-gray-900 flex items-center gap-2">
+                                                <i data-lucide="id-card" class="w-4 h-4 text-primary"></i>
+                                                工作台预览信息（与上方深灰条实时同步，可改为其他患者与主治医师）
+                                            </p>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <div>
+                                                    <label class="block text-xs font-bold text-gray-600 mb-2">病例号（可自定义；留空则按患者编号自动生成）</label>
+                                                    <input type="text" id="case-id-custom" class="form-input text-sm" placeholder="例如：P-2024-0001" value="">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-bold text-gray-600 mb-2">报告编号</label>
+                                                    <input type="text" id="report-no" class="form-input text-sm" placeholder="例如：ASS-2026-0023" value="ASS-2026-0023">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-bold text-gray-600 mb-2">主治医师姓名</label>
+                                                    <input type="text" id="physician-name" class="form-input text-sm" value="李明华">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-bold text-gray-600 mb-2">职称</label>
+                                                    <input type="text" id="physician-title" class="form-input text-sm" value="副主任医师">
+                                                </div>
+                                                <div class="md:col-span-2">
+                                                    <label class="block text-xs font-bold text-gray-600 mb-2">所在科室</label>
+                                                    <input type="text" id="department" class="form-input text-sm" value="介入与肿瘤微创治疗科">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-bold text-gray-600 mb-2">报告版本</label>
+                                                    <input type="text" id="report-version" class="form-input text-sm" placeholder="v1.0" value="v1.0">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-bold text-gray-600 mb-2">报告状态</label>
+                                                    <select id="report-status" class="form-input text-sm">
+                                                        <option value="pending" selected>待复核</option>
+                                                        <option value="confirmed">已确认</option>
+                                                        <option value="rejected">已驳回</option>
+                                                        <option value="draft">草稿</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex justify-end pt-4 border-t border-gray-200">
                                             <button type="button" id="next-to-upload" class="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl hover:shadow-lg transition-all flex items-center gap-3">
                                                 下一步：上传MRI影像
                                                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -2048,6 +2470,57 @@ document.getElementById("file-btn").onclick = () => {};
                                         </div>
                                     </form>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- 工作台框架（病例 / 报告元信息，适配肝癌 TACE 场景） -->
+                        <div id="predict-workbench" class="predict-workbench mb-10">
+                            <div class="predict-wb-topbar">
+                                <div class="flex items-center gap-3 flex-wrap">
+                                    <span class="text-xs font-black tracking-[0.2em] text-slate-300">HCC-TACE</span>
+                                    <span class="hidden sm:inline text-slate-500">|</span>
+                                    <span class="text-sm font-semibold">新建疗效评估</span>
+                                </div>
+                                <div class="text-xs text-slate-400">MRI 组学 · 列线图 · 疗效预测</div>
+                            </div>
+                            <div class="predict-wb-breadcrumb">
+                                <span>报告管理</span><span class="sep">›</span><span class="text-primary font-semibold">TACE 疗效评估报告</span>
+                                <span class="sep">·</span><span>评估详情</span>
+                            </div>
+                            <div class="px-4 py-3 border-b border-slate-100 flex flex-wrap items-baseline gap-x-8 gap-y-2 text-sm">
+                                <span class="font-bold text-gray-900"><span id="wb-patient-name">示例患者</span></span>
+                                <span class="text-slate-500">|</span>
+                                <span>病例号 <strong class="text-gray-800 font-mono" id="wb-case-id">P-2024-0001</strong></span>
+                                <span class="text-slate-500">|</span>
+                                <span id="wb-cycle-label">第 <strong id="wb-cycle-num">2</strong> 次 TACE 周期</span>
+                                <span class="text-slate-500">|</span>
+                                <span>计划介入：<strong id="wb-plan-date">2026-03-15</strong></span>
+                            </div>
+                            <div class="px-4 py-2 text-xs text-slate-600 border-b border-slate-100 bg-white flex flex-wrap gap-x-6 gap-y-1">
+                                <span><i data-lucide="user-cog" class="w-3.5 h-3.5 inline-block text-primary align-middle mr-1"></i> 主治：<strong id="wb-physician-name">李明华</strong>（<span id="wb-physician-title">副主任医师</span>）· <span id="wb-department">介入与肿瘤微创治疗科</span></span>
+                            </div>
+                            <div class="predict-wb-meta">
+                                <span>报告编号 <strong id="wb-report-no">ASS-2026-0023</strong></span>
+                                <span>版本 <strong id="wb-report-version">v1.0</strong></span>
+                                <span>状态 <strong id="wb-report-status" class="text-amber-600">待复核</strong></span>
+                                <span>患者 ID <strong id="wb-patient-id" class="font-mono">20260114</strong></span>
+                                <span>BCLC <strong id="wb-bclc">B</strong></span>
+                                <span>肿瘤最大径 <strong><span id="wb-tumor-mm">38</span> mm</strong></span>
+                            </div>
+                        </div>
+
+                        <!-- 列线图原图（与本页表单变量对应） -->
+                        <div class="predict-evidence-card predict-evidence-featured shadow-xl mb-10 rounded-2xl overflow-hidden border border-primary/10">
+                            <div class="px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-slate-50 to-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div>
+                                    <p class="text-xs font-bold text-primary uppercase tracking-widest mb-1">Nomogram · 论文列线图</p>
+                                    <h3 class="text-lg font-display font-bold text-gray-900">变量刻度与总分 → 疗效风险（Risk）</h3>
+                                    <p class="text-sm text-gray-600 mt-1 max-w-3xl">变量与<strong class="text-gray-800">最上方「病例信息录入」</strong>一致：<strong class="text-gray-800">BCLC、AFP、肿瘤大小、HBsAg、Com-RS</strong> 映射至 Points，合计 Total Points 后读取 Risk；本工具为该列线图逻辑的数字化实现。</p>
+                                </div>
+                                <span class="text-xs font-semibold text-gray-500 shrink-0">点击图片可放大</span>
+                            </div>
+                            <div class="predict-evidence-img-wrap p-3 sm:p-4 bg-slate-50/50" data-lightbox="assets/nomogram-reference.png" role="button" tabindex="0" aria-label="放大查看列线图">
+                                <img src="assets/nomogram-reference.png" alt="肝癌 TACE 疗效预测 Nomogram：BCLC、AFP、Size、HBsAg、Com_RS、Points、Total Points、Risk" loading="lazy" class="mx-auto">
                             </div>
                         </div>
 
@@ -2095,6 +2568,36 @@ document.getElementById("file-btn").onclick = () => {};
                                                     <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-lg">瘤内特征 × 6</span>
                                                     <span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-lg">瘤周特征 × 5</span>
                                                     <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-lg">共11个组学特征</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-6 pt-6 border-t border-green-200/80" id="mri-dual-panel">
+                                            <p class="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                                <i data-lucide="layout-grid" class="w-4 h-4 text-purple-600"></i>
+                                                影像展示：原图与模型关注区域（示意）
+                                            </p>
+                                            <div class="grid md:grid-cols-2 gap-4">
+                                                <div>
+                                                    <p class="text-xs text-gray-500 mb-2 text-center">原始 CE-T1WI 轴位（示意）</p>
+                                                    <div class="predict-heatmap-box">
+                                                        <div class="scan-grid"></div>
+                                                        <div class="absolute inset-0 flex items-center justify-center">
+                                                            <span class="text-[10px] text-slate-400/90 tracking-widest">720 × 480 · 肝脏病灶区</span>
+                                                        </div>
+                                                        <div class="heatmap-caption">上传切片 · 已对齐至标准窗宽窗位</div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p class="text-xs text-gray-500 mb-2 text-center">AI 注意力热力图（瘤内 / 瘤周高响应）</p>
+                                                    <div class="predict-heatmap-box">
+                                                        <div class="scan-grid"></div>
+                                                        <div class="heatmap-glow"></div>
+                                                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                                            <span class="text-[10px] text-red-200/90">红=高置信度区域 · 辅助解释</span>
+                                                        </div>
+                                                        <div class="heatmap-caption">Grad-CAM 风格示意 · 非诊断依据</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2146,18 +2649,83 @@ document.getElementById("file-btn").onclick = () => {};
                                     </div>
 
                                     <div class="pl-22">
-                                        <!-- 核心预测结果 -->
-                                        <div class="bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 rounded-2xl p-10 mb-8">
-                                            <div class="grid grid-cols-2 gap-8">
-                                                <!-- 左侧：CR概率 -->
-                                                <div class="text-center">
-                                                    <p class="text-sm text-gray-600 mb-3 font-semibold uppercase tracking-wide">TACE完全缓解（CR）概率</p>
-                                                    <div class="relative inline-block">
-                                                        <svg class="progress-ring w-48 h-48">
-                                                            <circle cx="96" cy="96" r="80" stroke="#E0F2FE" stroke-width="12" fill="none"></circle>
-                                                            <circle class="progress-ring-circle" cx="96" cy="96" r="80" stroke="url(#gradient)" stroke-width="12" fill="none" stroke-dasharray="502.4" stroke-dashoffset="63.3" stroke-linecap="round"></circle>
+                                        <p class="text-sm text-gray-500 mb-6 flex items-center gap-2 flex-wrap">
+                                            <i data-lucide="link-2" class="w-4 h-4 text-primary shrink-0"></i>
+                                            布局参考临床评估系统：左侧影像与综合结论、右侧组学特征贡献、下方医师复核；与「预测结果」页中 ROC / DCA 等研究结论一致，以下为演示数据。
+                                        </p>
+
+                                        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-4">
+                                            <h4 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                                                <i data-lucide="panels-top-left" class="w-5 h-5 text-green-600"></i>
+                                                影像展示与概念贡献（演示）
+                                            </h4>
+                                            <span class="text-xs text-gray-400">对应 MRI 瘤内 + 瘤周组学通道</span>
+                                        </div>
+
+                                        <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                                            <div class="lg:col-span-2 space-y-4">
+                                                <div class="grid sm:grid-cols-2 gap-3">
+                                                    <div>
+                                                        <p class="text-[11px] text-gray-500 mb-1.5 text-center">原始 CE-T1WI（与上传一致·示意）</p>
+                                                        <div class="predict-heatmap-box max-h-[200px]">
+                                                            <div class="scan-grid"></div>
+                                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                                <span class="text-[9px] text-slate-500/90">病灶 ROI</span>
+                                                            </div>
+                                                            <div class="heatmap-caption">术前影像</div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <p class="text-[11px] text-gray-500 mb-1.5 text-center">AI 注意力热力图</p>
+                                                        <div class="predict-heatmap-box max-h-[200px]">
+                                                            <div class="scan-grid"></div>
+                                                            <div class="heatmap-glow"></div>
+                                                            <div class="heatmap-caption">高亮区 · 解释用</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 rounded-2xl p-6 border border-green-100">
+                                                    <p class="text-xs font-bold text-green-800 uppercase tracking-wider mb-2">综合评级结论</p>
+                                                    <div class="flex flex-wrap items-center gap-3 mb-3">
+                                                        <span class="text-xl font-black text-gray-900">预期 TACE 疗效：<span class="text-emerald-600">良好倾向</span></span>
+                                                        <span class="px-2 py-0.5 rounded-md bg-white/80 text-xs font-bold text-gray-600 border border-green-200">演示</span>
+                                                    </div>
+                                                    <p class="text-sm text-gray-700 mb-2">
+                                                        AI 置信度 <strong class="text-gray-900">79%</strong>，近似 95% 置信区间 <strong>[75.0%, 81.0%]</strong>；模型外部验证 AUC <strong class="text-primary">0.787</strong>（与论文一致）。
+                                                    </p>
+                                                    <p class="text-xs text-gray-500">分级说明：结合 Com-RS、临床指标与 Nomogram 输出，用于辅助判断是否有望获得完全缓解（CR），非病理或影像学确诊。</p>
+                                                </div>
+                                            </div>
+                                            <div class="review-panel p-4 flex flex-col min-h-[280px]">
+                                                <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                                    <i data-lucide="list-tree" class="w-4 h-4 text-primary"></i>
+                                                    支持该评分的特征（相对贡献 %）
+                                                </p>
+                                                <div class="space-y-2 flex-1 text-[11px] text-gray-700">
+                                                    <div class="feature-contrib-row"><span class="w-[7.5rem] shrink-0 truncate" title="瘤周纹理（5mm）">瘤周纹理（5mm）</span><div class="bar-wrap"><div class="bar" style="width:9.5%"></div></div><span class="w-10 text-right text-gray-500">9.5%</span></div>
+                                                    <div class="feature-contrib-row"><span class="w-[7.5rem] shrink-0 truncate">GLCM 相关性</span><div class="bar-wrap"><div class="bar" style="width:8.5%"></div></div><span class="w-10 text-right text-gray-500">8.5%</span></div>
+                                                    <div class="feature-contrib-row"><span class="w-[7.5rem] shrink-0 truncate">GLRLM 长游程</span><div class="bar-wrap"><div class="bar" style="width:6.5%"></div></div><span class="w-10 text-right text-gray-500">6.5%</span></div>
+                                                    <div class="feature-contrib-row"><span class="w-[7.5rem] shrink-0 truncate">小波 HHL·灰度游程</span><div class="bar-wrap"><div class="bar" style="width:6.2%"></div></div><span class="w-10 text-right text-gray-500">6.2%</span></div>
+                                                    <div class="feature-contrib-row"><span class="w-[7.5rem] shrink-0 truncate">一阶峰度</span><div class="bar-wrap"><div class="bar" style="width:5.8%"></div></div><span class="w-10 text-right text-gray-500">5.8%</span></div>
+                                                    <div class="feature-contrib-row"><span class="w-[7.5rem] shrink-0 truncate">瘤内异质性</span><div class="bar-wrap"><div class="bar" style="width:5.4%"></div></div><span class="w-10 text-right text-gray-500">5.4%</span></div>
+                                                </div>
+                                                <details class="mt-2 text-xs text-primary font-semibold cursor-pointer">
+                                                    <summary class="list-none marker:content-none">展开其余 5 个组学特征</summary>
+                                                    <p class="mt-2 text-gray-500 font-normal leading-relaxed">GLDM 小依赖、GLSZM 熵、NGTDM 粗糙度等其余特征贡献均 &lt; 5%，已合并计入残差项。</p>
+                                                </details>
+                                            </div>
+                                        </div>
+
+                                        <div class="grid lg:grid-cols-2 gap-6 mb-8">
+                                            <div class="bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 rounded-2xl p-8 border border-green-100">
+                                                <p class="text-sm text-gray-600 mb-3 font-semibold uppercase tracking-wide text-center">TACE 完全缓解（CR）概率</p>
+                                                <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
+                                                    <div class="relative inline-block shrink-0">
+                                                        <svg class="progress-ring w-44 h-44">
+                                                            <circle cx="88" cy="88" r="72" stroke="#E0F2FE" stroke-width="11" fill="none"></circle>
+                                                            <circle class="progress-ring-circle" cx="88" cy="88" r="72" stroke="url(#gradientPred)" stroke-width="11" fill="none" stroke-dasharray="452.4" stroke-dashoffset="57.1" stroke-linecap="round"></circle>
                                                             <defs>
-                                                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                                <linearGradient id="gradientPred" x1="0%" y1="0%" x2="100%" y2="100%">
                                                                     <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
                                                                     <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
                                                                 </linearGradient>
@@ -2165,45 +2733,56 @@ document.getElementById("file-btn").onclick = () => {};
                                                         </svg>
                                                         <div class="absolute inset-0 flex items-center justify-center">
                                                             <div class="text-center">
-                                                                <p class="text-6xl font-black gradient-text">87.3<span class="text-3xl">%</span></p>
+                                                                <p class="text-5xl font-black gradient-text">87.3<span class="text-2xl">%</span></p>
                                                                 <p class="text-xs text-gray-500 mt-1">高概率</p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <!-- 右侧：其他指标 -->
-                                                <div class="space-y-6">
-                                                    <div>
-                                                        <div class="flex items-center justify-between mb-2">
-                                                            <span class="text-sm font-semibold text-gray-700">外部验证集AUC</span>
-                                                            <span class="text-2xl font-black text-primary">0.787</span>
+                                                    <div class="space-y-4 flex-1 max-w-md">
+                                                        <div>
+                                                            <div class="flex items-center justify-between mb-2">
+                                                                <span class="text-sm font-semibold text-gray-700">外部验证集 AUC</span>
+                                                                <span class="text-2xl font-black text-primary">0.787</span>
+                                                            </div>
+                                                            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                                                <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 78.7%;"></div>
+                                                            </div>
                                                         </div>
-                                                        <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                                                            <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 78.7%;"></div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div>
-                                                        <div class="flex items-center justify-between mb-3">
+                                                        <div class="flex items-center justify-between">
                                                             <span class="text-sm font-semibold text-gray-700">风险分层</span>
                                                             <span class="result-badge success">
                                                                 <i data-lucide="shield-check" class="w-4 h-4"></i>
                                                                 低风险
                                                             </span>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="bg-white rounded-xl p-6 border-2 border-green-200">
-                                                        <p class="text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
-                                                            <i data-lucide="stethoscope" class="w-4 h-4 text-green-600"></i>
-                                                            临床建议
-                                                        </p>
-                                                        <p class="text-gray-700 leading-relaxed">
-                                                            推荐TACE治疗，预后良好。患者具有较高的完全缓解概率，建议按标准方案进行TACE介入治疗，术后定期复查AFP及影像学指标。
-                                                        </p>
+                                                        <div class="bg-white rounded-xl p-4 border-2 border-green-200">
+                                                            <p class="text-sm font-bold text-gray-900 mb-1 flex items-center gap-2">
+                                                                <i data-lucide="stethoscope" class="w-4 h-4 text-green-600"></i>
+                                                                临床建议（演示）
+                                                            </p>
+                                                            <p class="text-gray-700 text-sm leading-relaxed">
+                                                                推荐按标准方案行 TACE，预后相对乐观；术后规律复查 AFP 与增强 MRI，若应答不足再评估联合或序贯治疗。
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="review-panel p-6 flex flex-col">
+                                                <p class="text-sm font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                                    <i data-lucide="user-check" class="w-5 h-5 text-primary"></i>
+                                                    医师复核（工作流占位）
+                                                </p>
+                                                <p class="text-xs text-gray-500 mb-4">参考您提供的系统：由上级医师确认或驳回 AI 报告，本页为交互示意，不产生真实医疗记录。</p>
+                                                <div class="flex flex-wrap gap-3 mb-4">
+                                                    <button type="button" class="flex-1 min-w-[8rem] py-3 rounded-xl bg-emerald-600 text-white text-sm font-bold hover:bg-emerald-700 transition-colors shadow-sm">
+                                                        确认评级
+                                                    </button>
+                                                    <button type="button" class="flex-1 min-w-[8rem] py-3 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 text-sm font-bold hover:bg-rose-100 transition-colors">
+                                                        驳回重评
+                                                    </button>
+                                                </div>
+                                                <label class="text-xs font-semibold text-gray-600 mb-1">复核备注</label>
+                                                <textarea class="w-full rounded-xl border border-gray-200 p-3 text-sm text-gray-700 min-h-[88px] focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none" placeholder="可填写：与影像科会诊意见、是否建议追加消融等"></textarea>
                                             </div>
                                         </div>
 
@@ -2824,13 +3403,55 @@ document.getElementById("file-btn").onclick = () => {};
 
             <!-- 关于我们页面 -->
             <section id="page-about" class="content-section">
-                <div class="py-20 px-12">
-                    <div class="max-w-5xl mx-auto">
-                        <h2 class="text-4xl font-display font-black text-gray-900 mb-8">关于我们</h2>
-                        <div class="glass-card p-12 rounded-3xl">
-                            <p class="text-gray-600 text-lg leading-relaxed text-center">
-                                此页面内容待添加...
-                            </p>
+                <div class="py-10 px-6 md:px-12 bg-gradient-to-b from-slate-50/80 to-white">
+                    <div class="max-w-3xl mx-auto">
+                        <div class="mb-5">
+                            <h2 class="text-2xl md:text-3xl font-display font-black text-gray-900 tracking-tight">关于我们</h2>
+                            <p class="text-sm text-gray-500 mt-1">智影肝策小组 · 成员剪影</p>
+                        </div>
+
+                        <div class="glass-card rounded-2xl border border-primary/12 shadow-lg overflow-hidden">
+                            <div class="bg-gradient-to-r from-primary via-[#0077cc] to-secondary px-5 py-4 text-white">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-white/25 flex items-center justify-center shrink-0 ring-2 ring-white/30">
+                                        <i data-lucide="user" class="w-6 h-6 text-white"></i>
+                                    </div>
+                                    <div class="min-w-0 flex-1">
+                                        <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                            <h3 class="text-lg md:text-xl font-display font-bold">祝小龙</h3>
+                                            <span class="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-white/80">核心成员</span>
+                                        </div>
+                                        <p class="text-xs md:text-sm text-white/90 mt-0.5 leading-snug">健康管理学院 · 信息管理与信息系统</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-5 md:p-6 space-y-4 text-[13px] md:text-sm leading-relaxed text-gray-700">
+                                <p class="text-gray-600 border-l-2 border-primary/40 pl-3 -ml-0.5">
+                                    专业综合成绩<strong class="text-gray-900">排名首位</strong>，学业与综合表现突出；屡获国家励志奖学金、校级<strong class="text-gray-900">一等奖学金</strong>及<strong class="text-gray-900">社会奖学金</strong>等多项资助与表彰，并获评<strong class="text-gray-900">年度优秀学生</strong>。
+                                </p>
+
+                                <div>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                                        <i data-lucide="sparkles" class="w-3 h-3 text-amber-500"></i>
+                                        竞赛与实践
+                                    </p>
+                                    <div class="grid gap-2">
+                                        <div class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="cpu" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                                            <span>「中软国际」人工智能挑战赛 · <span class="font-semibold text-gray-900">省级优秀奖</span></span>
+                                        </div>
+                                        <div class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="leaf" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                            <span>动植物标本大赛 · <span class="font-semibold text-gray-900">省级二等奖</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="text-xs text-gray-500 pt-3 border-t border-gray-100 leading-relaxed">
+                                    信管与医学影像智能交叉背景，为本项目的数据建模与系统实现提供支撑。智影肝策小组聚焦肝癌 TACE 疗效预测，推动医工融合与精准诊疗落地。
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2841,7 +3462,7 @@ document.getElementById("file-btn").onclick = () => {};
         <footer class="bg-gradient-to-r from-medical to-primary text-white py-8 px-12">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-8">
-                    <p class="text-sm font-medium">© 2026 中国医科大学</p>
+                    <p class="text-sm font-medium">© 2026 智影肝策小组</p>
                     <span class="text-blue-200">|</span>
                     <p class="text-sm">基于MRI放射组学的肝癌TACE疗效预测系统</p>
                     <span class="text-blue-200">|</span>
@@ -2855,10 +3476,123 @@ document.getElementById("file-btn").onclick = () => {};
         </footer>
     </div>
 
+    <div id="predict-img-lightbox" aria-hidden="true" role="dialog" aria-label="研究图表放大预览">
+        <img src="" alt="">
+        <span class="lb-hint">点击画面关闭 · 按 Esc 退出</span>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 初始化 Lucide 图标
             lucide.createIcons();
+
+            // 在线预测 · 工作台病例信息与报告元数据同步
+            function getReportStatusClass(v) {
+                switch (v) {
+                    case 'confirmed': return 'text-emerald-600';
+                    case 'rejected': return 'text-rose-600';
+                    case 'draft': return 'text-slate-500';
+                    default: return 'text-amber-600';
+                }
+            }
+            function syncPredictWorkbench() {
+                var nameEl = document.getElementById('patient-name');
+                var pidEl = document.getElementById('patient-id');
+                var cycleEl = document.getElementById('tace-cycle');
+                var dateEl = document.getElementById('plan-tace-date');
+                var bclcEl = document.getElementById('bclc-stage');
+                var tumorEl = document.getElementById('tumor-size');
+                var caseCustomEl = document.getElementById('case-id-custom');
+                var reportNoEl = document.getElementById('report-no');
+                var physNameEl = document.getElementById('physician-name');
+                var physTitleEl = document.getElementById('physician-title');
+                var deptEl = document.getElementById('department');
+                var verEl = document.getElementById('report-version');
+                var statusEl = document.getElementById('report-status');
+                var wbName = document.getElementById('wb-patient-name');
+                var wbPid = document.getElementById('wb-patient-id');
+                var wbCase = document.getElementById('wb-case-id');
+                var wbCycle = document.getElementById('wb-cycle-num');
+                var wbDate = document.getElementById('wb-plan-date');
+                var wbBclc = document.getElementById('wb-bclc');
+                var wbTumor = document.getElementById('wb-tumor-mm');
+                var wbPhysName = document.getElementById('wb-physician-name');
+                var wbPhysTitle = document.getElementById('wb-physician-title');
+                var wbDept = document.getElementById('wb-department');
+                var wbReportNo = document.getElementById('wb-report-no');
+                var wbVer = document.getElementById('wb-report-version');
+                var wbStatus = document.getElementById('wb-report-status');
+                if (wbName && nameEl) wbName.textContent = nameEl.value.trim() || '—';
+                if (wbPid && pidEl) wbPid.textContent = pidEl.value.trim() || '—';
+                if (wbCycle && cycleEl) wbCycle.textContent = cycleEl.value || '1';
+                if (wbDate && dateEl) wbDate.textContent = dateEl.value || '—';
+                if (wbBclc && bclcEl) wbBclc.textContent = bclcEl.value || '—';
+                if (wbTumor && tumorEl) wbTumor.textContent = tumorEl.value || '—';
+                if (wbCase && pidEl && caseCustomEl) {
+                    var custom = caseCustomEl.value.trim();
+                    if (custom) {
+                        wbCase.textContent = custom;
+                    } else {
+                        var d = (pidEl.value || '').replace(/\D/g, '');
+                        wbCase.textContent = d.length ? 'P-2024-' + d.slice(-4).padStart(4, '0') : 'P-2024-0001';
+                    }
+                }
+                if (wbPhysName && physNameEl) wbPhysName.textContent = physNameEl.value.trim() || '—';
+                if (wbPhysTitle && physTitleEl) wbPhysTitle.textContent = physTitleEl.value.trim() || '—';
+                if (wbDept && deptEl) wbDept.textContent = deptEl.value.trim() || '—';
+                if (wbReportNo && reportNoEl) wbReportNo.textContent = reportNoEl.value.trim() || '—';
+                if (wbVer && verEl) wbVer.textContent = verEl.value.trim() || '—';
+                if (wbStatus && statusEl) {
+                    var opt = statusEl.options[statusEl.selectedIndex];
+                    wbStatus.textContent = opt ? opt.text : '—';
+                    wbStatus.className = 'font-semibold ' + getReportStatusClass(statusEl.value);
+                }
+            }
+            ['patient-name', 'patient-id', 'tace-cycle', 'plan-tace-date', 'bclc-stage', 'tumor-size', 'case-id-custom', 'report-no', 'physician-name', 'physician-title', 'department', 'report-version', 'report-status'].forEach(function (fid) {
+                var el = document.getElementById(fid);
+                if (el) {
+                    el.addEventListener('input', syncPredictWorkbench);
+                    el.addEventListener('change', syncPredictWorkbench);
+                }
+            });
+            syncPredictWorkbench();
+
+            // 在线预测页 · 研究图表灯箱
+            (function () {
+                var lb = document.getElementById('predict-img-lightbox');
+                if (!lb) return;
+                var lbImg = lb.querySelector('img');
+                function openLb(src, alt) {
+                    lbImg.src = src;
+                    lbImg.alt = alt || '研究图表';
+                    lb.classList.add('active');
+                    lb.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeLb() {
+                    lb.classList.remove('active');
+                    lb.setAttribute('aria-hidden', 'true');
+                    lbImg.src = '';
+                    document.body.style.overflow = '';
+                }
+                document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+                    el.addEventListener('click', function () {
+                        openLb(el.getAttribute('data-lightbox'), el.querySelector('img') && el.querySelector('img').alt);
+                    });
+                    el.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openLb(el.getAttribute('data-lightbox'), el.querySelector('img') && el.querySelector('img').alt);
+                        }
+                    });
+                });
+                lb.addEventListener('click', function () {
+                    closeLb();
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && lb.classList.contains('active')) closeLb();
+                });
+            })();
 
             // 导航切换功能
             const navLinks = document.querySelectorAll('.nav-link');
@@ -2943,18 +3677,22 @@ document.getElementById("file-btn").onclick = () => {};
                         return;
                     }
 
-                    sectionPatientInfo.style.display = 'none';
+                    syncPredictWorkbench();
+                    // 不隐藏病例信息：仅展开 MRI 区块，页面顺序与上方标题/工作台/列线图保持不变
                     sectionMriUpload.style.display = 'block';
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (sectionMriUpload.scrollIntoView) {
+                        sectionMriUpload.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
             }
 
-            // 上一步：返回病例信息
+            // 上一步：仅收起 MRI 区块，病例信息始终可见
             if (backToInfoBtn) {
                 backToInfoBtn.addEventListener('click', function() {
                     sectionMriUpload.style.display = 'none';
-                    sectionPatientInfo.style.display = 'block';
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (sectionPatientInfo && sectionPatientInfo.scrollIntoView) {
+                        sectionPatientInfo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
             }
 
@@ -3027,7 +3765,9 @@ document.getElementById("file-btn").onclick = () => {};
                     sectionMriUpload.style.display = 'none';
                     sectionPredictionResult.style.display = 'block';
                     predictionLoading.classList.add('active');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (sectionPredictionResult.scrollIntoView) {
+                        sectionPredictionResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
 
                     // 模拟预测过程（3秒）
                     loadingTimer = setTimeout(function() {
@@ -3047,28 +3787,95 @@ document.getElementById("file-btn").onclick = () => {};
                         loadingTimer = null;
                     }
 
-                    // 重置表单
-                    document.getElementById('patient-form').reset();
-                    document.getElementById('patient-id').value = '';
+                    var pf = document.getElementById('patient-form');
+                    if (pf) pf.reset();
+                    var pn = document.getElementById('patient-name');
+                    var pid = document.getElementById('patient-id');
+                    var pdate = document.getElementById('plan-tace-date');
+                    var cyc = document.getElementById('tace-cycle');
+                    if (pn) pn.value = '张女士';
+                    if (pid) pid.value = '20260114';
+                    if (pdate) pdate.value = '2026-03-15';
+                    if (cyc) cyc.value = '2';
+                    var hb = document.getElementById('hbsag');
+                    var afp = document.getElementById('afp');
+                    var ts = document.getElementById('tumor-size');
+                    var bc = document.getElementById('bclc-stage');
+                    if (hb) hb.value = 'positive';
+                    if (afp) afp.value = '<400';
+                    if (ts) ts.value = '38';
+                    if (bc) bc.value = 'B';
+                    var cic = document.getElementById('case-id-custom');
+                    var rno = document.getElementById('report-no');
+                    var pfn = document.getElementById('physician-name');
+                    var pft = document.getElementById('physician-title');
+                    var dep = document.getElementById('department');
+                    var rv = document.getElementById('report-version');
+                    var rs = document.getElementById('report-status');
+                    if (cic) cic.value = '';
+                    if (rno) rno.value = 'ASS-2026-0023';
+                    if (pfn) pfn.value = '李明华';
+                    if (pft) pft.value = '副主任医师';
+                    if (dep) dep.value = '介入与肿瘤微创治疗科';
+                    if (rv) rv.value = 'v1.0';
+                    if (rs) rs.value = 'pending';
+                    syncPredictWorkbench();
                     uploadSuccess.style.display = 'none';
                     startPredictionBtn.disabled = true;
                     fileUploaded = false;
 
-                    // 显示第一步
+                    // 回到起始：结果区关闭，MRI 收起，病例信息始终可见
                     sectionPredictionResult.style.display = 'none';
-                    sectionPatientInfo.style.display = 'block';
+                    if (sectionMriUpload) sectionMriUpload.style.display = 'none';
+                    if (sectionPatientInfo) sectionPatientInfo.style.display = 'block';
                     predictionResult.style.display = 'none';
 
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if (sectionPatientInfo && sectionPatientInfo.scrollIntoView) {
+                        sectionPatientInfo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    lucide.createIcons();
                 });
             }
 
-            // 下载报告（模拟）
+            // 下载预测报告 PDF：将你的成品 PDF 放到网页同目录下的 assets 文件夹，命名为 tace-prediction-report.pdf
+            var PREDICT_REPORT_PDF = 'assets/tace-prediction-report.pdf';
+            function downloadPredictReportPdf() {
+                var pidEl = document.getElementById('patient-id');
+                var pidStr = pidEl && pidEl.value.trim() ? pidEl.value.trim().replace(/[/\\?%*:|"<>]/g, '-') : 'patient';
+                var d = new Date();
+                var ymd = d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2);
+                var fname = 'TACE疗效预测报告_' + pidStr + '_' + ymd + '.pdf';
+                function fallbackAnchor() {
+                    var a = document.createElement('a');
+                    a.href = PREDICT_REPORT_PDF;
+                    a.setAttribute('download', fname);
+                    a.rel = 'noopener';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+                fetch(PREDICT_REPORT_PDF, { method: 'GET', cache: 'no-store' })
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('missing');
+                        return res.blob();
+                    })
+                    .then(function (blob) {
+                        var url = URL.createObjectURL(blob);
+                        var a = document.createElement('a');
+                        a.href = url;
+                        a.download = fname;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    })
+                    .catch(function () {
+                        fallbackAnchor();
+                    });
+            }
             const downloadReportBtn = document.getElementById('download-report');
             if (downloadReportBtn) {
-                downloadReportBtn.addEventListener('click', function() {
-                    alert('预测报告PDF生成功能开发中，敬请期待！');
-                });
+                downloadReportBtn.addEventListener('click', downloadPredictReportPdf);
             }
         });
     </script>
