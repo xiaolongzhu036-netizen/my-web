@@ -2741,35 +2741,6 @@ document.getElementById("file-btn").onclick = () => {};
                                             </div>
                                         </div>
 
-                                        <div class="mt-6 pt-6 border-t border-green-200/80" id="mri-dual-panel">
-                                            <p class="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
-                                                <i data-lucide="layout-grid" class="w-4 h-4 text-purple-600"></i>
-                                                影像展示：原图与模型关注区域（示意）
-                                            </p>
-                                            <div class="grid md:grid-cols-2 gap-4">
-                                                <div>
-                                                    <p class="text-xs text-gray-500 mb-2 text-center">原始 CE-T1WI 轴位（示意）</p>
-                                                    <div class="predict-heatmap-box">
-                                                        <div class="scan-grid"></div>
-                                                        <div class="absolute inset-0 flex items-center justify-center">
-                                                            <span class="text-[10px] text-slate-400/90 tracking-widest">720 × 480 · 肝脏病灶区</span>
-                                                        </div>
-                                                        <div class="heatmap-caption">上传切片 · 已对齐至标准窗宽窗位</div>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <p class="text-xs text-gray-500 mb-2 text-center">AI 注意力热力图（瘤内 / 瘤周高响应）</p>
-                                                    <div class="predict-heatmap-box">
-                                                        <div class="scan-grid"></div>
-                                                        <div class="heatmap-glow"></div>
-                                                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                                            <span class="text-[10px] text-red-200/90">红=高置信度区域 · 辅助解释</span>
-                                                        </div>
-                                                        <div class="heatmap-caption">Grad-CAM 风格示意 · 非诊断依据</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="flex justify-between items-center pt-6 border-t border-gray-200 mt-8">
