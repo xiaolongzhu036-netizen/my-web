@@ -2837,14 +2837,14 @@ document.getElementById("file-btn").onclick = () => {};
                                                     <div>
                                                         <p class="text-[11px] text-gray-500 mb-1.5 text-center">原始 CE-T1WI（与上传一致·示意）</p>
                                                         <div class="predict-heatmap-box max-h-[200px]">
-                                                            <img src="assets/predict-preop-1_0.png" alt="术前 CE-T1WI 影像（由上传 DICOM 切片转换）" loading="lazy" class="w-full h-full object-cover rounded-xl">
+                                                            <img src="https://xiaolongzhu036-netizen.github.io/hcc-tace-prediction/assets/predict-preop-1_0.png" alt="术前 CE-T1WI 影像（由上传 DICOM 切片转换）" loading="lazy" class="w-full h-full object-cover rounded-xl">
                                                             <div class="heatmap-caption">术前影像</div>
                                                         </div>
                                                     </div>
                                                     <div>
                                                         <p class="text-[11px] text-gray-500 mb-1.5 text-center">AI 注意力热力图</p>
                                                         <div class="predict-heatmap-box max-h-[200px]">
-                                                            <img src="assets/predict-highlight-1_0.png" alt="术前影像高亮区示意图（模型关注区域可视化）" loading="lazy" class="w-full h-full object-cover rounded-xl">
+                                                            <img src="https://xiaolongzhu036-netizen.github.io/hcc-tace-prediction/assets/predict-highlight-1_0.png" alt="术前影像高亮区示意图（模型关注区域可视化）" loading="lazy" class="w-full h-full object-cover rounded-xl">
                                                             <div class="heatmap-caption">高亮区 · 解释用</div>
                                                         </div>
                                                     </div>
@@ -3952,7 +3952,7 @@ document.getElementById("file-btn").onclick = () => {};
             let fileUploaded = false;
             let loadingTimer = null;
             const defaultNomogramSrc = 'assets/nomogram-reference.png';
-            const predictedNomogramSrc = 'assets/nomogram-patient-example.jpeg';
+            const predictedNomogramSrc = 'https://xiaolongzhu036-netizen.github.io/hcc-tace-prediction/assets/nomogram-patient-example.jpeg';
 
             function setNomogramImage(predicted) {
                 if (!nomogramImageWrap || !nomogramImage) return;
