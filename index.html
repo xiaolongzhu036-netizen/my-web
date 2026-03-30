@@ -276,7 +276,7 @@ document.getElementById("file-btn").onclick = () => {};
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="filename" content="liver_cancer_tace_prediction.html">
-    <title>智影肝策小组 · 基于MRI组学的肝癌TACE疗效预测系统</title>
+    <title>智影肝策小组 · 肝癌介入治疗智能评估平台</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -1053,13 +1053,13 @@ document.getElementById("file-btn").onclick = () => {};
             <div class="px-12 py-6">
                 <!-- Logo 和标题 -->
                 <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-4">
                         <div class="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg">
                             <i data-lucide="activity" class="text-white w-8 h-8"></i>
                         </div>
                         <div>
-                            <h1 class="text-xl font-display font-bold text-gray-900">智影肝策小组</h1>
-                            <p class="text-sm text-gray-600 font-medium">基于MRI组学的肝癌TACE疗效预测系统</p>
+                                <h1 class="text-lg md:text-2xl font-display font-bold text-gray-900 leading-tight">智影肝策小组</h1>
+                                <p class="text-sm md:text-base text-gray-600 font-semibold leading-snug">肝癌介入治疗智能评估平台</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
@@ -1113,13 +1113,12 @@ document.getElementById("file-btn").onclick = () => {};
                         
                         <!-- 主标题 -->
                         <h2 class="font-display text-6xl font-black mb-6 leading-tight">
-                            基于多参数MRI组学<br/>
-                            病毒相关肝癌TACE疗效预测系统
+                            智影肝策
                         </h2>
                         
                         <!-- 副标题 -->
                         <p class="text-2xl font-medium mb-4 text-blue-50">
-                            术前无创精准预测 | 辅助临床个体化治疗
+                            肝癌介入治疗智能评估平台
                         </p>
                         
                         <!-- 核心数据指标 -->
@@ -1217,6 +1216,46 @@ document.getElementById("file-btn").onclick = () => {};
                                 <p class="text-sm text-gray-600 leading-relaxed">
                                     为医生提供术前预测工具,助力个体化治疗方案制定
                                 </p>
+                            </div>
+                        </div>
+
+                        <!-- 创新点展示 -->
+                        <div class="mt-16">
+                            <div class="text-center mb-10">
+                                <h3 class="text-3xl font-display font-black text-gray-900 mb-3">项目创新点</h3>
+                                <p class="text-gray-600">从算法设计、验证路径到临床落地，构建可解释、可复核、可部署的预测体系</p>
+                            </div>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-blue-500">
+                                    <p class="text-xs font-bold text-blue-700 uppercase tracking-wider mb-2">Innovation 01</p>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">瘤内 + 瘤周双域建模</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">不仅关注肿瘤核心，还纳入瘤周微环境纹理信息，补足传统单区域建模盲区。</p>
+                                </div>
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-purple-500">
+                                    <p class="text-xs font-bold text-purple-700 uppercase tracking-wider mb-2">Innovation 02</p>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">影像组学 + 临床变量融合</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">把 BCLC、AFP、肿瘤大小、HBsAg 与 Com-RS 联合建模，增强个体化预测能力。</p>
+                                </div>
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-emerald-500">
+                                    <p class="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">Innovation 03</p>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">稀疏特征选择 + 可解释输出</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">LASSO 从高维特征中筛选关键变量，结合 Nomogram 输出透明推理路径，降低“黑箱感”。</p>
+                                </div>
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-amber-500">
+                                    <p class="text-xs font-bold text-amber-700 uppercase tracking-wider mb-2">Innovation 04</p>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">三队列递进式验证</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">训练集、内部验证集、外部验证集逐层评估，兼顾性能与泛化稳定性。</p>
+                                </div>
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-cyan-500">
+                                    <p class="text-xs font-bold text-cyan-700 uppercase tracking-wider mb-2">Innovation 05</p>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">临床效用导向评估</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">除 ROC 外引入 DCA 与分层分析，强调“可用性”而不只追求单一分类指标。</p>
+                                </div>
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-rose-500">
+                                    <p class="text-xs font-bold text-rose-700 uppercase tracking-wider mb-2">Innovation 06</p>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">在线预测与医师复核闭环</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">将研究模型产品化为在线流程，支持影像展示、贡献解释、复核意见与报告下载。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1636,6 +1675,132 @@ document.getElementById("file-btn").onclick = () => {};
                         <div class="text-center mb-16">
                             <h2 class="text-5xl font-display font-black text-gray-900 mb-6">研究方法</h2>
                             <p class="text-gray-600 text-lg">科学严谨的研究流程，构建高性能预测模型</p>
+                        </div>
+
+                        <!-- 计算机方法学展示 -->
+                        <div class="mb-20">
+                            <div class="text-center mb-10">
+                                <h3 class="text-3xl font-display font-bold text-gray-900 mb-3">计算机方法学模块展示</h3>
+                                <p class="text-gray-600 text-lg">把“医学任务”落到“机器学习可执行步骤”：从特征工程到可解释推理与验证</p>
+                            </div>
+
+                            <div class="grid lg:grid-cols-4 gap-6">
+                                <div class="glass-card rounded-3xl p-7 border-l-4 border-blue-500 h-full">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="database" class="w-6 h-6 text-blue-600"></i>
+                                        <h4 class="text-xl font-display font-bold text-gray-900">数据预处理</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        统一影像采集信息与输入格式，明确 ROI 对应关系，减少跨队列差异对模型的影响（用于提升可复现性）。
+                                    </p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="data-badge bg-white text-blue-700 border border-blue-200">队列划分</span>
+                                        <span class="data-badge bg-white text-blue-700 border border-blue-200">输入规范</span>
+                                    </div>
+                                </div>
+
+                                <div class="glass-card rounded-3xl p-7 border-l-4 border-purple-500 h-full">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="cpu" class="w-6 h-6 text-purple-600"></i>
+                                        <h4 class="text-xl font-display font-bold text-gray-900">特征工程</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        以瘤内/瘤周为分析对象，提取一阶、纹理与小波等多维放射组学特征，形成可用于建模的数值向量。
+                                    </p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="data-badge bg-white text-purple-700 border border-purple-200">一阶</span>
+                                        <span class="data-badge bg-white text-purple-700 border border-purple-200">纹理</span>
+                                        <span class="data-badge bg-white text-purple-700 border border-purple-200">小波</span>
+                                    </div>
+                                </div>
+
+                                <div class="glass-card rounded-3xl p-7 border-l-4 border-emerald-500 h-full">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="git-compare" class="w-6 h-6 text-emerald-600"></i>
+                                        <h4 class="text-xl font-display font-bold text-gray-900">稀疏建模与解释</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        使用 <span class="font-semibold text-gray-900">LASSO</span> 进行稀疏筛选，得到最优预测特征；通过 <span class="font-semibold text-gray-900">列线图</span>与分层输出可读的推理路径。
+                                    </p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="data-badge bg-white text-emerald-700 border border-emerald-200">L1 稀疏</span>
+                                        <span class="data-badge bg-white text-emerald-700 border border-emerald-200">Nomogram</span>
+                                        <span class="data-badge bg-white text-emerald-700 border border-emerald-200">Com-RS</span>
+                                    </div>
+                                </div>
+
+                                <div class="glass-card rounded-3xl p-7 border-l-4 border-amber-500 h-full">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="shield-check" class="w-6 h-6 text-amber-600"></i>
+                                        <h4 class="text-xl font-display font-bold text-gray-900">验证与评估</h4>
+                                    </div>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        在训练/内部验证/外部验证多队列上报告判别能力与临床净获益：ROC（AUC）与 DCA 等指标构成完整评价闭环。
+                                    </p>
+                                    <div class="mt-4 flex flex-wrap gap-2">
+                                        <span class="data-badge bg-white text-amber-700 border border-amber-200">ROC / AUC</span>
+                                        <span class="data-badge bg-white text-amber-700 border border-amber-200">DCA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 四维创新 -->
+                        <div class="mb-20">
+                            <div class="text-center mb-10">
+                                <h3 class="text-3xl font-display font-bold text-gray-900 mb-3">四维创新点</h3>
+                                <p class="text-gray-600 text-lg">将方法创新、临床价值、工程实现与转化能力统一呈现，形成可复核的计算机方法学亮点。</p>
+                            </div>
+
+                            <div class="grid lg:grid-cols-4 gap-6">
+                                <div class="glass-card rounded-3xl p-7 border-l-4 border-blue-500">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="cpu" class="w-6 h-6 text-blue-600"></i>
+                                        <h4 class="text-xl font-display font-bold text-gray-900">技术创新</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-sm text-gray-600 list-disc pl-5">
+                                        <li>瘤内 + 瘤周双域建模补足疗效异质性解释</li>
+                                        <li>LASSO 稀疏建模与 Nomogram 形成可追溯推理路径</li>
+                                        <li>ROC/AUC 与分层分析共同构建判别与评估证据链</li>
+                                    </ul>
+                                </div>
+
+                                <div class="glass-card rounded-3xl p-7 border-l-4 border-emerald-500">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="heart-pulse" class="w-6 h-6 text-emerald-600"></i>
+                                        <h4 class="text-xl font-display font-bold text-gray-900">临床创新</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-sm text-gray-600 list-disc pl-5">
+                                        <li>将疗效评估前移至治疗前阶段</li>
+                                        <li>面向 CR/NCR 的响应分层，为方案选择提供更早依据</li>
+                                        <li>强调“术前无创 + 可解释”的临床可用性</li>
+                                    </ul>
+                                </div>
+
+                                <div class="glass-card rounded-3xl p-7 border-l-4 border-amber-500">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="workflow" class="w-6 h-6 text-amber-600"></i>
+                                        <h4 class="text-xl font-display font-bold text-gray-900">工程创新</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-sm text-gray-600 list-disc pl-5">
+                                        <li>论文方法产品化为在线预测工作流</li>
+                                        <li>集成病例录入、影像展示、贡献解释、复核与导出</li>
+                                        <li>支持图表灯箱与报告下载，提升使用闭环效率</li>
+                                    </ul>
+                                </div>
+
+                                <div class="glass-card rounded-3xl p-7 border-l-4 border-cyan-500">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <i data-lucide="sparkles" class="w-6 h-6 text-cyan-600"></i>
+                                        <h4 class="text-xl font-display font-bold text-gray-900">转化创新</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-sm text-gray-600 list-disc pl-5">
+                                        <li>多队列逐层验证：训练 / 内部 / 外部</li>
+                                        <li>以 ROC、DCA 与 Nomogram 构建“可解释 + 可验证”证据链</li>
+                                        <li>保留扩展接口，便于接入更多中心数据与新特征</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- 步骤1：研究对象与数据 -->
@@ -2146,11 +2311,15 @@ document.getElementById("file-btn").onclick = () => {};
                                             <div class="predict-evidence-card shadow-lg h-full flex flex-col">
                                                 <div class="px-5 py-4 border-b border-gray-100 bg-white flex-1">
                                                     <p class="text-xs font-bold text-cyan-700 uppercase tracking-widest mb-1">图 3 · 响应分层</p>
-                                                    <h4 class="font-bold text-gray-900">Com-RS 评分瀑布图</h4>
-                                                    <p class="text-sm text-gray-600 mt-1">按 Com-RS 由低至高排序后，NCR（非完全缓解）集中于低分端，CR（完全缓解）分布于高分端；外部验证队列仍保持相同趋势，支持评分作为疗效分层指标。</p>
+                                                    <h4 class="font-bold text-gray-900 mb-2">Com-RS 评分瀑布图</h4>
+                                                    <div class="flex flex-wrap gap-2 mb-2">
+                                                        <span class="px-2 py-0.5 rounded-md bg-cyan-50 text-cyan-700 text-xs font-semibold border border-cyan-100">低分端：NCR 聚集</span>
+                                                        <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-100">高分端：CR 集中</span>
+                                                    </div>
+                                                    <p class="text-sm text-gray-600 leading-relaxed">按 Com-RS 由低到高排序后，NCR（非完全缓解）主要位于低分段，CR（完全缓解）更多分布在高分段；外部验证队列同样保持该趋势，支持该评分用于疗效分层。</p>
                                                 </div>
-                                                <div class="predict-evidence-img-wrap p-3 mt-auto" data-lightbox="assets/fig-waterfall.png" role="button" tabindex="0">
-                                                    <img src="assets/fig-waterfall.png" alt="Com-RS 瀑布图：训练、内部验证、外部验证" loading="lazy">
+                                                <div class="predict-evidence-img-wrap p-3 mt-auto bg-slate-50/40" data-lightbox="assets/fig-waterfall.png" role="button" tabindex="0" aria-label="放大查看 Com-RS 响应分层图">
+                                                    <img src="assets/fig-waterfall.png" alt="Com-RS 瀑布图：训练、内部验证、外部验证" loading="lazy" class="w-full rounded-xl">
                                                 </div>
                                             </div>
                                             <div class="predict-evidence-card shadow-lg h-full flex flex-col">
@@ -2514,13 +2683,13 @@ document.getElementById("file-btn").onclick = () => {};
                             <div class="px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-slate-50 to-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                                 <div>
                                     <p class="text-xs font-bold text-primary uppercase tracking-widest mb-1">Nomogram · 论文列线图</p>
-                                    <h3 class="text-lg font-display font-bold text-gray-900">变量刻度与总分 → 疗效风险（Risk）</h3>
-                                    <p class="text-sm text-gray-600 mt-1 max-w-3xl">变量与<strong class="text-gray-800">最上方「病例信息录入」</strong>一致：<strong class="text-gray-800">BCLC、AFP、肿瘤大小、HBsAg、Com-RS</strong> 映射至 Points，合计 Total Points 后读取 Risk；本工具为该列线图逻辑的数字化实现。</p>
+                                    <h3 class="text-lg font-display font-bold text-gray-900">列线图风险评估示意（Nomogram）</h3>
+                                    <p class="text-sm text-gray-600 mt-1 max-w-3xl">下图展示病例在列线图中的打分路径：<strong class="text-gray-800">BCLC、AFP、肿瘤大小、HBsAg、Com-RS</strong> 对应 Points，汇总为 Total Points 后映射 Risk。点击可放大查看关键刻度。</p>
                                 </div>
                                 <span class="text-xs font-semibold text-gray-500 shrink-0">点击图片可放大</span>
                             </div>
-                            <div class="predict-evidence-img-wrap p-3 sm:p-4 bg-slate-50/50" data-lightbox="assets/nomogram-reference.png" role="button" tabindex="0" aria-label="放大查看列线图">
-                                <img src="assets/nomogram-reference.png" alt="肝癌 TACE 疗效预测 Nomogram：BCLC、AFP、Size、HBsAg、Com_RS、Points、Total Points、Risk" loading="lazy" class="mx-auto">
+                            <div id="nomogram-image-wrap" class="predict-evidence-img-wrap p-3 sm:p-4 bg-slate-50/50" data-lightbox="assets/nomogram-reference.png" role="button" tabindex="0" aria-label="放大查看列线图">
+                                <img id="nomogram-image" src="assets/nomogram-reference.png" alt="肝癌 TACE 疗效预测 Nomogram：BCLC、AFP、Size、HBsAg、Com_RS、Points、Total Points、Risk" loading="lazy" class="mx-auto rounded-xl shadow-sm">
                             </div>
                         </div>
 
@@ -2668,18 +2837,14 @@ document.getElementById("file-btn").onclick = () => {};
                                                     <div>
                                                         <p class="text-[11px] text-gray-500 mb-1.5 text-center">原始 CE-T1WI（与上传一致·示意）</p>
                                                         <div class="predict-heatmap-box max-h-[200px]">
-                                                            <div class="scan-grid"></div>
-                                                            <div class="absolute inset-0 flex items-center justify-center">
-                                                                <span class="text-[9px] text-slate-500/90">病灶 ROI</span>
-                                                            </div>
+                                                            <img src="assets/predict-preop-1_0.png" alt="术前 CE-T1WI 影像（由上传 DICOM 切片转换）" loading="lazy" class="w-full h-full object-cover rounded-xl">
                                                             <div class="heatmap-caption">术前影像</div>
                                                         </div>
                                                     </div>
                                                     <div>
                                                         <p class="text-[11px] text-gray-500 mb-1.5 text-center">AI 注意力热力图</p>
                                                         <div class="predict-heatmap-box max-h-[200px]">
-                                                            <div class="scan-grid"></div>
-                                                            <div class="heatmap-glow"></div>
+                                                            <img src="assets/predict-highlight-1_0.png" alt="术前影像高亮区示意图（模型关注区域可视化）" loading="lazy" class="w-full h-full object-cover rounded-xl">
                                                             <div class="heatmap-caption">高亮区 · 解释用</div>
                                                         </div>
                                                     </div>
@@ -3410,48 +3575,171 @@ document.getElementById("file-btn").onclick = () => {};
                             <p class="text-sm text-gray-500 mt-1">智影肝策小组 · 成员剪影</p>
                         </div>
 
-                        <div class="glass-card rounded-2xl border border-primary/12 shadow-lg overflow-hidden">
-                            <div class="bg-gradient-to-r from-primary via-[#0077cc] to-secondary px-5 py-4 text-white">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 rounded-xl bg-white/25 flex items-center justify-center shrink-0 ring-2 ring-white/30">
-                                        <i data-lucide="user" class="w-6 h-6 text-white"></i>
-                                    </div>
-                                    <div class="min-w-0 flex-1">
-                                        <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                                            <h3 class="text-lg md:text-xl font-display font-bold">祝小龙</h3>
-                                            <span class="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-white/80">核心成员</span>
+                        <div class="space-y-4">
+                            <article class="glass-card rounded-2xl border border-primary/12 shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-primary via-[#0077cc] to-secondary px-5 py-4 text-white">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-white/25 flex items-center justify-center shrink-0 ring-2 ring-white/30">
+                                            <i data-lucide="crown" class="w-6 h-6 text-white"></i>
                                         </div>
-                                        <p class="text-xs md:text-sm text-white/90 mt-0.5 leading-snug">健康管理学院 · 信息管理与信息系统</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="p-5 md:p-6 space-y-4 text-[13px] md:text-sm leading-relaxed text-gray-700">
-                                <p class="text-gray-600 border-l-2 border-primary/40 pl-3 -ml-0.5">
-                                    专业综合成绩<strong class="text-gray-900">排名首位</strong>，学业与综合表现突出；屡获国家励志奖学金、校级<strong class="text-gray-900">一等奖学金</strong>及<strong class="text-gray-900">社会奖学金</strong>等多项资助与表彰，并获评<strong class="text-gray-900">年度优秀学生</strong>。
-                                </p>
-
-                                <div>
-                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-                                        <i data-lucide="sparkles" class="w-3 h-3 text-amber-500"></i>
-                                        竞赛与实践
-                                    </p>
-                                    <div class="grid gap-2">
-                                        <div class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
-                                            <i data-lucide="cpu" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
-                                            <span>「中软国际」人工智能挑战赛 · <span class="font-semibold text-gray-900">省级优秀奖</span></span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
-                                            <i data-lucide="leaf" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                            <span>动植物标本大赛 · <span class="font-semibold text-gray-900">省级二等奖</span></span>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                                <h3 class="text-lg md:text-xl font-display font-bold">徐兆阳</h3>
+                                                <span class="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-white/85">组长</span>
+                                            </div>
+                                            <p class="text-xs md:text-sm text-white/90 mt-0.5 leading-snug">主要方向：医学人工智能、医学影像分析、医学科研创新</p>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="p-5 md:p-6 text-[13px] md:text-sm leading-relaxed text-gray-700">
+                                    <ul class="grid gap-2">
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="file-text" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                                            <span>发表 SCI 英文论文 2 篇，其中 <span class="font-semibold text-gray-900">Magnetic Resonance Imaging</span> 论文为第一作者。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="shield-check" class="w-4 h-4 text-indigo-600 shrink-0 mt-0.5"></i>
+                                            <span>参与/申请发明专利 3 项，具备科研写作、专利申报与项目协作能力。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="award" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                                            <span>获全国级二等奖、省级一等奖等多项竞赛荣誉，具备较强竞赛实践能力。</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
 
-                                <p class="text-xs text-gray-500 pt-3 border-t border-gray-100 leading-relaxed">
-                                    信管与医学影像智能交叉背景，为本项目的数据建模与系统实现提供支撑。智影肝策小组聚焦肝癌 TACE 疗效预测，推动医工融合与精准诊疗落地。
-                                </p>
-                            </div>
+                            <article class="glass-card rounded-2xl border border-primary/12 shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-[#0f766e] via-[#0ea5a4] to-[#06b6d4] px-5 py-4 text-white">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-white/25 flex items-center justify-center shrink-0 ring-2 ring-white/30">
+                                            <i data-lucide="user" class="w-6 h-6 text-white"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                                <h3 class="text-lg md:text-xl font-display font-bold">祝小龙</h3>
+                                                <span class="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-white/85">核心成员</span>
+                                            </div>
+                                            <p class="text-xs md:text-sm text-white/90 mt-0.5 leading-snug">健康管理学院 · 信息管理与信息系统</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-5 md:p-6 text-[13px] md:text-sm leading-relaxed text-gray-700">
+                                    <ul class="grid gap-2">
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="trending-up" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                                            <span>专业综合成绩排名第一，学业与综合表现稳定，具备较强执行与落地能力。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="award" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                                            <span>曾获国家励志奖学金、校级一等奖学金、社会奖学金及年度优秀学生等荣誉。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="cpu" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                            <span>参与 AI 挑战赛、标本大赛等项目实践，为本系统的数据建模与实现提供支撑。</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="glass-card rounded-2xl border border-primary/12 shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-[#0e7490] via-[#0284c7] to-[#0ea5e9] px-5 py-4 text-white">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-white/25 flex items-center justify-center shrink-0 ring-2 ring-white/30">
+                                            <i data-lucide="user" class="w-6 h-6 text-white"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                                <h3 class="text-lg md:text-xl font-display font-bold">于颜铭</h3>
+                                                <span class="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-white/85">核心成员</span>
+                                            </div>
+                                            <p class="text-xs md:text-sm text-white/90 mt-0.5 leading-snug">数模竞赛与科研写作方向</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-5 md:p-6 text-[13px] md:text-sm leading-relaxed text-gray-700">
+                                    <ul class="grid gap-2">
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="medal" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                                            <span>2024 辽宁省数学建模大赛一等奖；2024、2025 全国大学生数学建模竞赛省级三等奖。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="book-open" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                                            <span>肿瘤学二区 Top 论文 1 篇，两篇在审论文，兼具科研训练与学术延展能力。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="star" class="w-4 h-4 text-violet-600 shrink-0 mt-0.5"></i>
+                                            <span>获校三等奖学金、国家励志奖学金、校优秀团员；担任班级组织委员，另获校级奖项两项。</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="glass-card rounded-2xl border border-primary/12 shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-[#14532d] via-[#15803d] to-[#22c55e] px-5 py-4 text-white">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-white/25 flex items-center justify-center shrink-0 ring-2 ring-white/30">
+                                            <i data-lucide="user" class="w-6 h-6 text-white"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                                <h3 class="text-lg md:text-xl font-display font-bold">高传洋</h3>
+                                                <span class="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-white/85">核心成员</span>
+                                            </div>
+                                            <p class="text-xs md:text-sm text-white/90 mt-0.5 leading-snug">麻醉学专业 · 理论与实践并重</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-5 md:p-6 text-[13px] md:text-sm leading-relaxed text-gray-700">
+                                    <ul class="grid gap-2">
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="graduation-cap" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                                            <span>麻醉学专业学生，大一以专业第三成绩转入麻醉学专业，学习态度端正，自主学习能力突出。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="trophy" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                                            <span>获校综合二等奖学金、校优秀寝室；以第一成员身份获辽宁省标本大赛省二等奖。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="cpu" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                            <span>参与“中软国际”AI 挑战赛，荣获省优秀奖，体现医工交叉实践潜力。</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <article class="glass-card rounded-2xl border border-primary/12 shadow-lg overflow-hidden">
+                                <div class="bg-gradient-to-r from-[#5b21b6] via-[#7c3aed] to-[#a855f7] px-5 py-4 text-white">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-white/25 flex items-center justify-center shrink-0 ring-2 ring-white/30">
+                                            <i data-lucide="user" class="w-6 h-6 text-white"></i>
+                                        </div>
+                                        <div class="min-w-0 flex-1">
+                                            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                                <h3 class="text-lg md:text-xl font-display font-bold">于海楠</h3>
+                                                <span class="text-[11px] md:text-xs font-semibold uppercase tracking-wide text-white/85">核心成员</span>
+                                            </div>
+                                            <p class="text-xs md:text-sm text-white/90 mt-0.5 leading-snug">AI 竞赛与应用落地方向</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-5 md:p-6 text-[13px] md:text-sm leading-relaxed text-gray-700">
+                                    <ul class="grid gap-2">
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="award" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                                            <span>荣获中软国际卓越杯 AI 挑战赛省级一等奖、智能技术应用大赛省级二等奖。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="lightbulb" class="w-4 h-4 text-violet-600 shrink-0 mt-0.5"></i>
+                                            <span>具备较强创新思维与实战能力，能够快速适应岗位需求并高效完成任务。</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5 rounded-lg bg-slate-50 px-3 py-2 border border-slate-100">
+                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                            <span>严于律己、踏实肯干，对学习与任务认真负责，善于总结反思与持续优化。</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
@@ -3658,9 +3946,31 @@ document.getElementById("file-btn").onclick = () => {};
             const predictionLoading = document.getElementById('prediction-loading');
             const predictionResult = document.getElementById('prediction-result');
             const newPredictionBtn = document.getElementById('new-prediction');
+            const nomogramImageWrap = document.getElementById('nomogram-image-wrap');
+            const nomogramImage = document.getElementById('nomogram-image');
 
             let fileUploaded = false;
             let loadingTimer = null;
+            const defaultNomogramSrc = 'assets/nomogram-reference.png';
+            const predictedNomogramSrc = 'assets/nomogram-patient-example.jpeg';
+
+            function setNomogramImage(predicted) {
+                if (!nomogramImageWrap || !nomogramImage) return;
+                if (predicted) {
+                    nomogramImageWrap.setAttribute('data-lightbox', predictedNomogramSrc);
+                    nomogramImageWrap.setAttribute('aria-label', '放大查看列线图病例示意图');
+                    nomogramImage.src = predictedNomogramSrc;
+                    nomogramImage.alt = 'Nomogram 病例示意图：由各变量映射总分并读取 TACE 疗效风险';
+                } else {
+                    nomogramImageWrap.setAttribute('data-lightbox', defaultNomogramSrc);
+                    nomogramImageWrap.setAttribute('aria-label', '放大查看列线图');
+                    nomogramImage.src = defaultNomogramSrc;
+                    nomogramImage.alt = '肝癌 TACE 疗效预测 Nomogram：BCLC、AFP、Size、HBsAg、Com_RS、Points、Total Points、Risk';
+                }
+            }
+
+            // 进入在线预测时保持原图；点击开始预测后再切换为病例示意图
+            setNomogramImage(false);
 
             // 下一步：前往MRI上传
             if (nextToUploadBtn) {
@@ -3762,6 +4072,7 @@ document.getElementById("file-btn").onclick = () => {};
                         return;
                     }
 
+                    setNomogramImage(true);
                     sectionMriUpload.style.display = 'none';
                     sectionPredictionResult.style.display = 'block';
                     predictionLoading.classList.add('active');
